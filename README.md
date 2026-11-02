@@ -46,6 +46,7 @@ The project evaluates multiple classification algorithms to compare their predic
 - Decision Tree
 - K-Nearest Neighbors (KNN)
 - Naive Bayes
+- Support Vector Machine (SVM)
 - Random Forest
 - XGBoost
 
@@ -59,6 +60,7 @@ The following table shows the performance of the trained models on the evaluatio
 | Random Forest | 0.8823 | 0.7713 | 0.6960 | 0.6902 | 0.6930 | 0.3861 |
 | Logistic Regression | 0.8337 | 0.7599 | 0.6423 | 0.7166 | 0.6648 | 0.3510 |
 | XGBoost | 0.8459 | 0.7444 | 0.6466 | 0.6990 | 0.6656 | 0.3417 |
+| Support Vector Machine | 0.8532 | 0.7326 | 0.6572 | 0.7080 | 0.6764 | 0.3617 |
 | Naive Bayes | 0.8374 | 0.7354 | 0.6334 | 0.6845 | 0.6512 | 0.3138 |
 | KNN | 0.8920 | 0.6645 | 0.7116 | 0.5689 | 0.5906 | 0.2415 |
 | Decision Tree | 0.8410 | 0.6232 | 0.6096 | 0.6232 | 0.6156 | 0.2323 |
@@ -69,6 +71,7 @@ From the comparison table, the following observations can be made:
 - Random Forest performs the best overall in terms of balanced classification performance. It has the highest MCC and strong accuracy and F1-score, making it a robust choice for this marketing prediction problem.
 - KNN yields the highest raw accuracy (0.8920) but its AUC and recall are weaker compared to Random Forest and Logistic Regression. This suggests that while it can classify many instances correctly, it may be less reliable in distinguishing between positive and negative cases across thresholds.
 - Logistic Regression offers a strong balance between AUC, recall, and generalization, making it a solid baseline model and a competitive alternative to the ensemble methods.
+- Support Vector Machine provides a balanced result, with an AUC of 0.7326 and an MCC of 0.3617 on the held-out test split.
 - XGBoost performs well, with good accuracy and recall, but its AUC is slightly lower than Logistic Regression and Random Forest.
 - Naive Bayes is stable but less precise overall compared to the stronger models.
 - Decision Tree has the weakest AUC and MCC, indicating limited predictive power compared to ensemble approaches.

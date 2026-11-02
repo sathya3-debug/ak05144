@@ -137,7 +137,7 @@ with st.sidebar:
     st.markdown(
         """
 **What this app does**
-- Loads **pre‑trained classifiers** (Logistic Regression, Decision Tree, K‑Nearest Neighbors, Naive Bayes, Random Forest, XGBoost if present).
+- Loads **pre‑trained classifiers** (Logistic Regression, Decision Tree, K‑Nearest Neighbors, Naive Bayes, Support Vector Machine, Random Forest, XGBoost if present).
 - Lets you **upload a Test CSV**, evaluates it, and shows **metrics** and **confusion matrix**.
 - The **classification report** is shown at the bottom (expanded).
 
@@ -196,6 +196,7 @@ pretty_names = {
     "tree":   "Decision Tree",
     "knn":    "K-Nearest Neighbors",
     "nb":     "Naive Bayes",
+    "svm":    "Support Vector Machine",
     "rf":     "Random Forest (Ensemble)",
     "xgb":    "XGBoost (Ensemble)",
 }
