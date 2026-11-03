@@ -23,7 +23,7 @@ The dataset used in this project is the UCI Bank Marketing dataset, a real-world
 - Rows: approximately 41,000 records
 - Features: customer profile, current financial status, and previous campaign interactions
 - Target variable: y (subscription outcome)
-- Training setup: The dataset is processed and used to train multiple classifiers
+- Training setup: The dataset is processed and used to train five classifiers
 - Preprocessing: the feature duration is excluded during model training to avoid data leakage
 
 ### Example feature categories
@@ -47,8 +47,6 @@ The project evaluates multiple classification algorithms to compare their predic
 - K-Nearest Neighbors (KNN)
 - Naive Bayes
 - Support Vector Machine (SVM)
-- Random Forest
-- XGBoost
 
 These models are trained and saved as joblib pipelines in the model directory, and a Streamlit interface allows users to select a model and test it on new data.
 
@@ -57,30 +55,25 @@ The following table shows the performance of the trained models on the evaluatio
 
 | Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
 |---|---:|---:|---:|---:|---:|---:|
-| Random Forest | 0.8823 | 0.7713 | 0.6960 | 0.6902 | 0.6930 | 0.3861 |
 | Logistic Regression | 0.8337 | 0.7599 | 0.6423 | 0.7166 | 0.6648 | 0.3510 |
-| XGBoost | 0.8459 | 0.7444 | 0.6466 | 0.6990 | 0.6656 | 0.3417 |
 | Support Vector Machine | 0.8532 | 0.7326 | 0.6572 | 0.7080 | 0.6764 | 0.3617 |
 | Naive Bayes | 0.8374 | 0.7354 | 0.6334 | 0.6845 | 0.6512 | 0.3138 |
 | KNN | 0.8920 | 0.6645 | 0.7116 | 0.5689 | 0.5906 | 0.2415 |
 | Decision Tree | 0.8410 | 0.6232 | 0.6096 | 0.6232 | 0.6156 | 0.2323 |
 
 ## e) Observation on Model Performance
-From the comparison table, the following observations can be made:
+Based on the comparison table:
 
-- Random Forest performs the best overall in terms of balanced classification performance. It has the highest MCC and strong accuracy and F1-score, making it a robust choice for this marketing prediction problem.
-- KNN yields the highest raw accuracy (0.8920) but its AUC and recall are weaker compared to Random Forest and Logistic Regression. This suggests that while it can classify many instances correctly, it may be less reliable in distinguishing between positive and negative cases across thresholds.
-- Logistic Regression offers a strong balance between AUC, recall, and generalization, making it a solid baseline model and a competitive alternative to the ensemble methods.
+- KNN yields the highest raw accuracy (0.8920), but its AUC and recall are weaker than Logistic Regression and SVM.
+- Logistic Regression has the highest AUC (0.7599) and recall (0.7166), making it a strong baseline for identifying likely subscribers.
 - Support Vector Machine provides a balanced result, with an AUC of 0.7326 and an MCC of 0.3617 on the held-out test split.
-- XGBoost performs well, with good accuracy and recall, but its AUC is slightly lower than Logistic Regression and Random Forest.
-- Naive Bayes is stable but less precise overall compared to the stronger models.
-- Decision Tree has the weakest AUC and MCC, indicating limited predictive power compared to ensemble approaches.
+- Naive Bayes has competitive AUC, while Decision Tree has the weakest AUC and MCC among these models.
 
 ### Conclusion
-The Random Forest classifier is the strongest model for deployment in this project because it achieves the best overall balance of accuracy, discrimination ability, and classification quality. Logistic Regression is also a strong alternative when interpretability and a simpler model are preferred.
+No single model leads on every metric: KNN has the highest accuracy, Logistic Regression the highest AUC and recall, and SVM the highest F1 score and MCC. The preferred model depends on which evaluation metric best fits the campaign objective.
 
 ## Repository Contents
-- data/: dataset files used for training and sample evaluation
+- test_data.csv: sample test data for model evaluation
 - model/: trained model files and evaluation summary
 - app.py: Streamlit application for model evaluation and prediction
 - README.md: project documentation

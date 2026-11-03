@@ -32,7 +32,6 @@ from sklearn.metrics import (
 # Paths (absolute, based on this script)
 # -----------------------------
 BASE_DIR  = Path(__file__).parent.resolve()
-DATA_DIR  = BASE_DIR / "data"
 MODEL_DIR = BASE_DIR / "model"
 
 st.set_page_config(page_title="ML Classifier - Sathyanarayanan Jagadish (2026AK05144)", page_icon="📈", layout="wide")
@@ -137,7 +136,7 @@ with st.sidebar:
     st.markdown(
         """
 **What this app does**
-- Loads **pre‑trained classifiers** (Logistic Regression, Decision Tree, K‑Nearest Neighbors, Naive Bayes, Support Vector Machine, Random Forest, XGBoost if present).
+- Loads **pre‑trained classifiers** (Logistic Regression, Decision Tree, K‑Nearest Neighbors, Naive Bayes, and Support Vector Machine).
 - Lets you **upload a Test CSV**, evaluates it, and shows **metrics** and **confusion matrix**.
 - The **classification report** is shown at the bottom (expanded).
 
@@ -165,7 +164,7 @@ st.caption("Upload **Test CSV** → Pick a **Model** → See **Metrics**, **Conf
 
 # --- Quick Download for Sample test data (absolute path) ---
 st.subheader("📥 Download: Sample test data")
-test_csv_path = DATA_DIR / "test_sample.csv"
+test_csv_path = BASE_DIR / "test_data.csv"
 
 if test_csv_path.exists():
     @st.cache_data(show_spinner=False)
@@ -175,12 +174,12 @@ if test_csv_path.exists():
     st.download_button(
         label="⬇️ Download sample test CSV",
         data=_load_test_bytes(test_csv_path),
-        file_name="test_sample.csv",
+        file_name="test_data.csv",
         mime="text/csv",
         width="content"
     )
 else:
-    st.info("No sample test CSV found at `data/test_sample.csv`.")
+    st.info("No sample test CSV found at `test_data.csv`.")
 
 st.divider()
 
@@ -197,8 +196,6 @@ pretty_names = {
     "knn":    "K-Nearest Neighbors",
     "nb":     "Naive Bayes",
     "svm":    "Support Vector Machine",
-    "rf":     "Random Forest (Ensemble)",
-    "xgb":    "XGBoost (Ensemble)",
 }
 internal_to_pretty = {k: pretty_names.get(k, k) for k in models.keys()}
 pretty_to_internal = {v: k for k, v in internal_to_pretty.items()}
