@@ -64,13 +64,14 @@ The following table shows the performance of the trained models on the evaluatio
 ## e) Observation on Model Performance
 Based on the comparison table:
 
-- KNN yields the highest raw accuracy (0.8920), but its AUC and recall are weaker than Logistic Regression and SVM.
-- Logistic Regression has the highest AUC (0.7599) and recall (0.7166), making it a strong baseline for identifying likely subscribers.
-- Support Vector Machine provides a balanced result, with an AUC of 0.7326 and an MCC of 0.3617 on the held-out test split.
-- Naive Bayes has competitive AUC, while Decision Tree has the weakest AUC and MCC among these models.
+ML Model Name	Observation about model performance
+Logistic Regression	Best AUC (0.7599) and recall (0.7166), making it the most balanced model for identifying positive cases. It gives strong overall classification performance and is a reliable baseline model.
+Decision Tree	Weakest performance among the five models. It has the lowest AUC (0.6232) and MCC (0.2323), indicating poor class separation and weaker predictive quality.
+KNN	Highest accuracy (0.8920), but comparatively weak AUC (0.6645) and recall (0.5689). This means it classifies many samples correctly but is less reliable in distinguishing the two classes.
+Naive Bayes	Moderate and stable performance with accuracy 0.8374 and AUC 0.7354. It is competitive but shows lower precision and MCC than Logistic Regression and SVM.
+Support Vector Machine	Strong overall balanced performance with accuracy 0.8532, good precision/recall, and MCC 0.3617. It is a very competitive model and close to the best overall.
+Overall, Winner for your dataset?	Logistic Regression is the overall winner for this dataset because it gives the best AUC and recall while maintaining a strong overall balance across metrics.
 
-### Conclusion
-No single model leads on every metric: KNN has the highest accuracy, Logistic Regression the highest AUC and recall, and SVM the highest F1 score and MCC. The preferred model depends on which evaluation metric best fits the campaign objective.
 
 ## Repository Contents
 - test_data.csv: sample test data for model evaluation
