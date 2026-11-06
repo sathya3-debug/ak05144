@@ -64,13 +64,14 @@ The following table shows the performance of the trained models on the evaluatio
 ## e) Observation on Model Performance
 Based on the comparison table:
 
-ML Model Name	Observation about model performance
-Logistic Regression	Best AUC (0.7599) and recall (0.7166), making it the most balanced model for identifying positive cases. It gives strong overall classification performance and is a reliable baseline model.
-Decision Tree	Weakest performance among the five models. It has the lowest AUC (0.6232) and MCC (0.2323), indicating poor class separation and weaker predictive quality.
-KNN	Highest accuracy (0.8920), but comparatively weak AUC (0.6645) and recall (0.5689). This means it classifies many samples correctly but is less reliable in distinguishing the two classes.
-Naive Bayes	Moderate and stable performance with accuracy 0.8374 and AUC 0.7354. It is competitive but shows lower precision and MCC than Logistic Regression and SVM.
-Support Vector Machine	Strong overall balanced performance with accuracy 0.8532, good precision/recall, and MCC 0.3617. It is a very competitive model and close to the best overall.
-Overall, Winner for your dataset?	Logistic Regression is the overall winner for this dataset because it gives the best AUC and recall while maintaining a strong overall balance across metrics.
+| ML Model Name | Observation about model performance |
+|---|---|
+| Logistic Regression | Best AUC (0.7599) and recall (0.7166), making it the most balanced model for identifying positive cases. It gives strong overall classification performance and is a reliable baseline model. |
+| Decision Tree | Weakest performance among the five models. It has the lowest AUC (0.6232) and MCC (0.2323), indicating poor class separation and weaker predictive quality. |
+| KNN | Highest accuracy (0.8920), but comparatively weak AUC (0.6645) and recall (0.5689). This means it classifies many samples correctly but is less reliable in distinguishing the two classes. |
+| Naive Bayes | Moderate and stable performance with accuracy 0.8374 and AUC 0.7354. It is competitive but shows lower precision and MCC than Logistic Regression and SVM. |
+| Support Vector Machine | Strong overall balanced performance with accuracy 0.8532, good precision/recall, and MCC 0.3617. It is a very competitive model and close to the best overall. |
+| Overall, Winner for your dataset? | Logistic Regression is the overall winner for this dataset because it gives the best AUC and recall while maintaining a strong overall balance across metrics. |
 
 
 ## Repository Contents
